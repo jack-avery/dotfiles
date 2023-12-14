@@ -1,0 +1,20 @@
+print_info() {
+    info title
+    info "dist" distro
+    info "kernel" kernel
+    info "uptime" uptime
+    info "ram" memory &
+    info "cpu" cpu &
+    info "gpu" gpu &
+    wait
+    prin "$(date)
+}
+
+distro_shorthand="off"
+os_arch="off"
+package_managers="off"
+colors=(5 7 5 4 4 7)
+
+ascii_bold="on"
+ascii_colors=(6 5)
+ascii_distro="arch_small"

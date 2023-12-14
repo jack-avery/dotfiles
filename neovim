@@ -1,0 +1,46 @@
+" General
+set number
+set autoread
+set smartcase
+set ignorecase
+set hlsearch
+set incsearch
+set fileencoding=utf-8
+set belloff=all
+set nopaste
+syntax on
+
+" Indentation
+set shiftwidth=4
+set softtabstop=2
+set tabstop=2
+set expandtab
+set smartindent
+set autoindent
+
+" Disable swap
+set noswapfile
+set nobackup
+set nowb
+
+" Keybinds
+let mapleader = "\<Space>"
+
+" Fast save & quit
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>q :q<CR>
+nnoremap <Leader>Q :qa!<CR>
+
+" Fast Movement
+nnoremap <c-h> b
+nnoremap <c-k> k
+nnoremap <c-l> w
+vnoremap <c-h> b
+vnoremap <c-k> k
+vnoremap <c-l> w
+
+" Indenting in visual and normal mode
+xnoremap <tab> >gv
+xnoremap <s-tab> <gv
+nnoremap <tab> >>
+nnoremap <s-tab> <<
