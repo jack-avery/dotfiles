@@ -7,7 +7,7 @@ print_info() {
     info "cpu" cpu &
     info "gpu" gpu &
     wait
-    prin "$(date)
+    prin "$(date)"
 }
 
 distro_shorthand="off"

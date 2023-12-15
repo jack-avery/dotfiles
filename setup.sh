@@ -4,15 +4,15 @@ for dir in ${DIRS[@]}; do
     [[ ! -e $dir ]] && mkdir -pv $dir
 done
 
-# delete any pre-existing (default?) config files
-OLD=( "$HOME/.oh-my-zsh/custom/themes/jack.zsh-theme" "$HOME/.config/nvim/init.vim" "$HOME/.config/neofetch/config.conf" "$HOME/.zshrc" )
-for file in ${OLD[@]}; do
-    [[ -f $file ]] && mv -v $file $file.old
-    [[ -L $file ]] && rm -v $file
+declare -A DOTS
+DOTS=(  ["zsh_theme"]="$HOME/.oh-my-zsh/custom/themes/jack.zsh-theme" \
+        ["nvim"]="$HOME/.config/nvim/init.vim" \
+        ["neofetch"]="$HOME/.config/neofetch/config.conf" \
+        ["zshrc"]="$HOME/.zshrc" )
+for d in ${!DOTS[@]}; do
+    # delete old files/residual symlinks
+    [[ -f ${DOTS[$d]} ]] && mv -v $d $d.old
+    [[ -L ${DOTS[$d]} ]] && rm -v $d
+    # symlink new config
+    ln -sv $(pwd)/$d ${DOTS[$d]}
 done
-
-# link my config
-ln -sv $(pwd)/jack.zsh-theme ~/.oh-my-zsh/custom/themes/jack.zsh-theme
-ln -sv $(pwd)/neovim ~/.config/nvim/init.vim
-ln -sv $(pwd)/neofetch ~/.config/neofetch/config.conf
-ln -sv $(pwd)/zshrc ~/.zshrc
