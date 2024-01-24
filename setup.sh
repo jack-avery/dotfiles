@@ -2,7 +2,7 @@
 
 declare -A DOTS
 DOTS=(  ["zsh_theme"]="$HOME/.oh-my-zsh/custom/themes/jack.zsh-theme" \
-        ["nvim"]="$HOME/.config/nvim/init.vim" \
+        ["nvim"]="$HOME/.config/nvim/init.lua" \
         ["neofetch"]="$HOME/.config/neofetch/config.conf" \
         ["zshrc"]="$HOME/.zshrc" )
 

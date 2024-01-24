@@ -1,48 +1,80 @@
-" General
-set number
-set relativenumber
-set autoread
-set smartcase
-set ignorecase
-set hlsearch
-set incsearch
-set fileencoding=utf-8
-set belloff=all
-set nopaste
-syntax on
+-- lazy.nvim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
 
-" Indentation
-set shiftwidth=4
-set softtabstop=2
-set tabstop=2
-set expandtab
-set smartindent
-set autoindent
+require("lazy").setup({
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000 }
+})
 
-" Disable swap
-set noswapfile
-set nobackup
-set nowb
+vim.cmd.colorscheme "catppuccin"
 
-" Keybinds
-let mapleader = "\<Space>"
+-- General
+vim.opt.number=true
+vim.opt.relativenumber=true
+vim.opt.autoread=true
+vim.opt.smartcase=true
+vim.opt.ignorecase=true
+vim.opt.hlsearch=true
+vim.opt.incsearch=true
+vim.opt.fileencoding="utf-8"
+vim.opt.belloff="all"
+vim.opt.paste=false
 
-" Fast save & quit
-nnoremap <Leader>w :w<CR>
-nnoremap <Leader>q :q<CR>
-nnoremap <Leader>Q :qa!<CR>
+-- Indentation
+vim.opt.shiftwidth=4
+vim.opt.softtabstop=2
+vim.opt.tabstop=2
+vim.opt.expandtab=true
+vim.opt.smartindent=true
+vim.opt.autoindent=true
 
-" Fast Movement
-nnoremap <c-h> b
-nnoremap <c-k> k
-nnoremap <c-l> w
-vnoremap <c-h> b
-vnoremap <c-k> k
-vnoremap <c-l> w
+-- Disable swap
+vim.opt.swapfile=false
+vim.opt.backup=false
+vim.opt.wb=false
 
-" Indenting in visual and normal mode
-xnoremap <tab> >gv
-xnoremap <s-tab> <gv
-nnoremap <tab> >>
-nnoremap <s-tab> <<
-inoremap <s-tab> <ESC><<A
+-- Keybinds
+vim.g.mapleader = "\\<Space>"
+
+-- Fast save & quit
+vim.api.nvim_set_keymap("n", "<leader>w", ":w<cr>", {noremap=true})
+vim.api.nvim_set_keymap("n", "<leader>q", ":q<CR>", {noremap=true})
+vim.api.nvim_set_keymap("n", "<leader>Q", ":qa!<CR>", {noremap=true})
+
+-- Fast Movement
+vim.api.nvim_set_keymap("n", "<c-h>", "b", {noremap=true})
+vim.api.nvim_set_keymap("n", "<c-k>", "k", {noremap=true})
+vim.api.nvim_set_keymap("n", "<c-l>", "w", {noremap=true})
+vim.api.nvim_set_keymap("v", "<c-h>", "b", {noremap=true})
+vim.api.nvim_set_keymap("v", "<c-k>", "k", {noremap=true})
+vim.api.nvim_set_keymap("v", "<c-l>", "w", {noremap=true})
+
+-- Indentation binds
+vim.api.nvim_set_keymap("x", "<tab>", ">gv", {noremap=true})
+vim.api.nvim_set_keymap("x", "<s-tab>", "<gv", {noremap=true})
+vim.api.nvim_set_keymap("n", "<tab>", ">>", {noremap=true})
+vim.api.nvim_set_keymap("n", "<s-tab>", "<<", {noremap=true})
+vim.api.nvim_set_keymap("i", "<s-tab>", "<esc><<A", {noremap=true})
+
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
