@@ -1,5 +1,6 @@
 " General
 set number
+set relativenumber
 set autoread
 set smartcase
 set ignorecase
@@ -44,3 +45,4 @@ xnoremap <tab> >gv
 xnoremap <s-tab> <gv
 nnoremap <tab> >>
 nnoremap <s-tab> <<
+inoremap <s-tab> <ESC><<A
