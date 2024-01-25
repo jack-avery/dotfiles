@@ -4,7 +4,8 @@ declare -A DOTS
 DOTS=(  ["zsh_theme"]="$HOME/.oh-my-zsh/custom/themes/jack.zsh-theme" \
         ["nvim"]="$HOME/.config/nvim/init.lua" \
         ["neofetch"]="$HOME/.config/neofetch/config.conf" \
-        ["zshrc"]="$HOME/.zshrc" )
+        ["zshrc"]="$HOME/.zshrc" \
+        ["alacritty"]="$HOME/.config/alacritty.toml" )
 
 for d in ${!DOTS[@]}; do
     # create folders if they don't exist
