@@ -11,8 +11,9 @@ for d in ${!DOTS[@]}; do
     # create folders if they don't exist
     [[ ! -e $(dirname "${DOTS[$d]}") ]] && mkdir -pv $(dirname ${DOTS[$d]})
     # delete old files/residual symlinks
-    [[ -f ${DOTS[$d]} ]] && mv -v ${DOTS[$d]} ${DOTS[$d]}.old
     [[ -L ${DOTS[$d]} ]] && rm -v ${DOTS[$d]}
+    [[ -f ${DOTS[$d]} ]] && mv -v ${DOTS[$d]} ${DOTS[$d]}.old
     # symlink new config
     ln -sv $(pwd)/$d ${DOTS[$d]}
 done
+echo finished
