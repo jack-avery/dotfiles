@@ -22,7 +22,9 @@ vim.cmd.colorscheme "catppuccin"
 
 require("nvim-tree").setup()
 
-require('lspconfig').pylsp.setup({})
+local nvim_lsp = require('lspconfig')
+
+nvim_lsp.pylsp.setup({})
 
 -- General
 vim.opt.number=true
