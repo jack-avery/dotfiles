@@ -30,6 +30,3 @@ if [ -f '~/git/google-cloud-sdk/path.zsh.inc' ]; then . '~/git/google-cloud-sdk/
 # The next line enables shell command completion for gcloud.
 if [ -f '~/git/google-cloud-sdk/completion.zsh.inc' ]; then . '~/git/google-cloud-sdk/completion.zsh.inc'; fi
 
-echo
-neofetch
-
