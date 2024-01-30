@@ -25,6 +25,7 @@ require("nvim-tree").setup()
 local nvim_lsp = require('lspconfig')
 
 nvim_lsp.pylsp.setup({})
+nvim_lsp.rust_analyzer.setup({})
 
 -- General
 vim.opt.number=true
