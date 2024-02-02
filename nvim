@@ -15,13 +15,17 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
   "neovim/nvim-lspconfig",
-  "nvim-tree/nvim-tree.lua"
+  "nvim-tree/nvim-tree.lua",
+  "nvim-tree/nvim-web-devicons",
+  "williamboman/mason.nvim"
 })
 
 vim.cmd.colorscheme "catppuccin"
 
 require("nvim-tree").setup()
+require("mason").setup()
 
+-- LSP
 local nvim_lsp = require('lspconfig')
 
 nvim_lsp.pylsp.setup({})
@@ -60,14 +64,6 @@ vim.api.nvim_set_keymap("n", ",", ":NvimTreeOpen<cr>", {noremap=true})
 vim.api.nvim_set_keymap("n", "<leader>w", ":w<cr>", {noremap=true})
 vim.api.nvim_set_keymap("n", "<leader>q", ":q<CR>", {noremap=true})
 vim.api.nvim_set_keymap("n", "<leader>Q", ":qa!<CR>", {noremap=true})
-
--- Fast Movement
-vim.api.nvim_set_keymap("n", "<c-h>", "b", {noremap=true})
-vim.api.nvim_set_keymap("n", "<c-k>", "k", {noremap=true})
-vim.api.nvim_set_keymap("n", "<c-l>", "w", {noremap=true})
-vim.api.nvim_set_keymap("v", "<c-h>", "b", {noremap=true})
-vim.api.nvim_set_keymap("v", "<c-k>", "k", {noremap=true})
-vim.api.nvim_set_keymap("v", "<c-l>", "w", {noremap=true})
 
 -- Indentation binds
 vim.api.nvim_set_keymap("x", "<tab>", ">gv", {noremap=true})
