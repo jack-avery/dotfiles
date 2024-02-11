@@ -42,6 +42,7 @@ vim.opt.incsearch=true
 vim.opt.fileencoding="ascii"
 vim.opt.belloff="all"
 vim.opt.paste=false
+vim.opt.ma=true
 
 -- Indentation
 vim.opt.shiftwidth=4
