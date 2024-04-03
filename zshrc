@@ -1,4 +1,4 @@
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -26,4 +26,5 @@ alias vim="nvim"
 
 if [ -f '~/git/google-cloud-sdk/path.zsh.inc' ]; then . '~/git/google-cloud-sdk/path.zsh.inc'; fi
 if [ -f '~/git/google-cloud-sdk/completion.zsh.inc' ]; then . '~/git/google-cloud-sdk/completion.zsh.inc'; fi
-eval "$(~/.rbenv/bin/rbenv init - zsh)"
+eval "$(~/.rbenv/bin/rbenv init - zsh 2> /dev/null)"
+
