@@ -24,6 +24,8 @@ source $ZSH/oh-my-zsh.sh
 alias v="nvim"
 alias vim="nvim"
 
+alias lg="lazygit"
+
 if [ -f '~/git/google-cloud-sdk/path.zsh.inc' ]; then . '~/git/google-cloud-sdk/path.zsh.inc'; fi
 if [ -f '~/git/google-cloud-sdk/completion.zsh.inc' ]; then . '~/git/google-cloud-sdk/completion.zsh.inc'; fi
 eval "$(~/.rbenv/bin/rbenv init - zsh 2> /dev/null)"
