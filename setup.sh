@@ -6,7 +6,8 @@ DOTS=(  ["zsh_theme"]="$HOME/.oh-my-zsh/custom/themes/jack.zsh-theme" \
         ["neofetch"]="$HOME/.config/neofetch/config.conf" \
         ["zshrc"]="$HOME/.zshrc" \
         ["alacritty"]="$HOME/.config/alacritty.toml" \
-        ["gitconfig"]="$HOME/.gitconfig" )
+        ["gitconfig"]="$HOME/.gitconfig" \
+        ["tmux"]="$HOME/.config/tmux/tmux.conf" )
 
 for d in ${!DOTS[@]}; do
     # create folders if they don't exist
