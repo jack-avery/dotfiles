@@ -1,1 +1,2 @@
 PROMPT=" %{$fg[yellow]%}%1~ %{$reset_color%}%# "
+

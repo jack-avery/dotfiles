@@ -13,7 +13,7 @@ print_info() {
 
 distro_shorthand="off"
 os_arch="off"
-package_managers="off"
+package_managers="on"
 colors=(5 7 5 4 4 7)
-
 ascii_bold="on"
+

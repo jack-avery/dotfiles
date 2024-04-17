@@ -84,3 +84,4 @@ vim.api.nvim_set_keymap("x", "<s-tab>", "<gv", {noremap=true})
 vim.api.nvim_set_keymap("n", "<tab>", ">>", {noremap=true})
 vim.api.nvim_set_keymap("n", "<s-tab>", "<<", {noremap=true})
 vim.api.nvim_set_keymap("i", "<s-tab>", "<esc><<A", {noremap=true})
+
