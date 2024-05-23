@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 declare -A DOTS
-DOTS=(  ["nvim"]="$HOME/.config/nvim" \
+DOTS=(  ["aliases"]="$HOME/.aliases" \
+	["nvim"]="$HOME/.config/nvim" \
         ["bashrc"]="$HOME/.bashrc" \
         ["gitconfig"]="$HOME/.gitconfig" \
         ["tmux"]="$HOME/.config/tmux/tmux.conf" )

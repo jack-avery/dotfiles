@@ -1,0 +1,11 @@
+if command -v doas &> /dev/null ; then
+	alias sudo='doas'
+fi
+
+alias ls='ls --color=auto'
+alias ll='ls -lha'
+alias l='ls -lhA'
+alias c='cd ..'
+
+alias v=$EDITOR
+alias lg='lazygit'

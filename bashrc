@@ -9,17 +9,7 @@ elif command -v nano &> /dev/null ; then
 	export EDITOR='nano'
 fi
 
-if command -v doas &> /dev/null ; then
-	alias sudo='doas'
-fi
-
-alias ls='ls --color=auto'
-alias ll='ls -lha'
-alias l='ls -lhA'
-alias c='cd ..'
-
-alias v=$EDITOR
-alias lg='lazygit'
+source .aliases
 
 if [ -f '~/git/google-cloud-sdk/path.zsh.inc' ]; then . '~/git/google-cloud-sdk/path.zsh.inc'; fi
 if [ -f '~/git/google-cloud-sdk/completion.zsh.inc' ]; then . '~/git/google-cloud-sdk/completion.zsh.inc'; fi
