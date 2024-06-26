@@ -4,8 +4,11 @@ declare -A DOTS
 DOTS=(  ["aliases"]="$HOME/.aliases" \
 	["nvim"]="$HOME/.config/nvim" \
         ["bashrc"]="$HOME/.bashrc" \
+	["zshrc"]="$HOME/.zshrc" \
+	["zsh_theme"]="$HOME/.oh-my-zsh/custom/themes/jack.zsh-theme" \
         ["gitconfig"]="$HOME/.gitconfig" \
-        ["tmux"]="$HOME/.config/tmux/tmux.conf" )
+        ["tmux"]="$HOME/.config/tmux/tmux.conf" \
+	["alacritty"]="$HOME/.config/alacritty.toml" )
 
 for d in ${!DOTS[@]}; do
     # create folders if they don't exist
