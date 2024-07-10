@@ -18,6 +18,7 @@ require("lazy").setup({
   "nvim-tree/nvim-web-devicons",
   "neovim/nvim-lspconfig",
   "williamboman/mason.nvim",
+  "williamboman/mason-lspconfig.nvim",
   "hrsh7th/cmp-nvim-lsp",
   "hrsh7th/nvim-cmp",
   "hrsh7th/cmp-vsnip",
@@ -28,19 +29,20 @@ vim.cmd.colorscheme "catppuccin"
 
 require("nvim-tree").setup()
 require("mason").setup()
+require("mason-lspconfig").setup({})
 
 -- LSP
-local nvim_lsp = require('lspconfig')
-
-local lsp_servers_list = {'pylsp', 'rust_analyzer'}
-
-nvim_lsp.pylsp.setup({})
-nvim_lsp.rust_analyzer.setup({})
+local lspconfig = require('lspconfig')
+require("mason-lspconfig").setup_handlers({
+  function(server)
+    lspconfig[server].setup({})
+  end,
+})
 
 vim.opt.list=true
 local space = "·"
 vim.opt.listchars:append {
-  tab = "│ ",
+  tab = "│   ",
   multispace = space,
   lead = space,
   trail = space,

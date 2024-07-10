@@ -1,0 +1,48 @@
+" General
+set number              " line numbers
+set relativenumber      " relative line numbers
+set autoread            " reload files with change from external apps
+set smartcase           " smart case search
+set ignorecase          " case insensitive search
+set hlsearch            " highlight search results
+set incsearch           " show results in real time
+set clipboard^=unnamed  " use system clipboard
+set fileencoding=utf-8  " write to utf-8
+set belloff=all         " no sounds
+set nopaste             " do not autoindent on paste
+syntax on               " syntax highlighting
+
+" Indentation
+set shiftwidth=4
+set softtabstop=2
+set tabstop=2
+set expandtab
+set smartindent
+set autoindent
+
+" Swap
+set noswapfile
+set nobackup
+set nowb
+
+" 
+" Keybinds
+"
+let mapleader = "\<Space>"
+
+" Fast save & quit
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>q :q<CR>
+nnoremap <Leader>Q :qa!<CR>
+
+" Fast Movement
+nnoremap <c-j> b
+nnoremap <c-k> j
+nnoremap <c-l> k
+nnoremap <c-;> w
+
+" Indenting in visual and normal mode
+xnoremap <tab> >gv
+xnoremap <s-tab> <gv
+nnoremap <tab> >>
+nnoremap <s-tab> <<

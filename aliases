@@ -7,5 +7,5 @@ alias ll='ls -lha'
 alias l='ls -lhA'
 alias c='cd ..'
 
-alias v=$EDITOR
+alias v="$EDITOR"
 alias lg='lazygit'

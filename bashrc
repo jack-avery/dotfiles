@@ -1,5 +1,4 @@
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
-export PS1='$? \e[0;34m\u\e[m@\e[0;34m\h\e[m:\e[0;36m\e[0;33m\W\e[m \$ '
 
 if command -v nvim &> /dev/null ; then
 	export EDITOR='nvim'
