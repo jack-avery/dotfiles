@@ -42,7 +42,7 @@ require("mason-lspconfig").setup_handlers({
 vim.opt.list=true
 local space = "·"
 vim.opt.listchars:append {
-  tab = "│   ",
+  tab = "│ ",
   multispace = space,
   lead = space,
   trail = space,
