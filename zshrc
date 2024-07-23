@@ -1,4 +1,4 @@
-export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+source ~/.shellrc
 
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -18,12 +18,6 @@ COMPLETION_WAITING_DOTS="true"
 # HIST_STAMPS="mm/dd/yyyy"
 # ZSH_CUSTOM=
 
-plugins=(git)
+plugins=()
 source $ZSH/oh-my-zsh.sh
-
-source ~/.aliases
-
-if [ -f '~/git/google-cloud-sdk/path.zsh.inc' ]; then . '~/git/google-cloud-sdk/path.zsh.inc'; fi
-if [ -f '~/git/google-cloud-sdk/completion.zsh.inc' ]; then . '~/git/google-cloud-sdk/completion.zsh.inc'; fi
-eval "$(~/.rbenv/bin/rbenv init - zsh 2> /dev/null)"
 
