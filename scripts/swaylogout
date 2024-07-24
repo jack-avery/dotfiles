@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-read -p 'Confirm logout? (Y/n) ' -n 1
-[[ "$REPLY" =~ ^(Y|y| ) ]] && swaymsg exit
-
