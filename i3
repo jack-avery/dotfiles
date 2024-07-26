@@ -155,7 +155,7 @@ bindsym $mod+Shift+r exec i3-msg reload
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec kitty i3logout
 # lock i3
-bindsym $mod+l exec "i3lock || swaylock"
+bindsym $mod+Shift+t exec "i3lock || swaylock"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
