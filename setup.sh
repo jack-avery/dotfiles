@@ -12,6 +12,7 @@ DOTS=(  ["shellrc"]="$HOME/.shellrc" \
         ["gitconfig"]="$HOME/.gitconfig" \
         ["tmux"]="$HOME/.config/tmux/tmux.conf" \
         ["alacritty"]="$HOME/.config/alacritty.toml" \
+        ["kitty"]="$HOME/.config/kitty/kitty.conf" \
         ["i3"]="$HOME/.config/i3/config" \
         ["i3status"]="$HOME/.config/i3status/config" )
 
