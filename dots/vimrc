@@ -35,12 +35,6 @@ nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>Q :qa!<CR>
 
-" Fast Movement
-nnoremap <c-j> b
-nnoremap <c-k> j
-nnoremap <c-l> k
-nnoremap <c-;> w
-
 " Indenting in visual and normal mode
 xnoremap <tab> >gv
 xnoremap <s-tab> <gv

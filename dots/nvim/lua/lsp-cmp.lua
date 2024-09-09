@@ -22,7 +22,8 @@ require("lazy").setup({
   "hrsh7th/cmp-nvim-lsp",
   "hrsh7th/nvim-cmp",
   "hrsh7th/cmp-vsnip",
-  "hrsh7th/vim-vsnip"
+  "hrsh7th/vim-vsnip",
+  "folke/trouble.nvim"
 })
 
 vim.cmd.colorscheme "catppuccin"
@@ -30,6 +31,9 @@ vim.cmd.colorscheme "catppuccin"
 require("nvim-tree").setup()
 require("mason").setup()
 require("mason-lspconfig").setup({})
+require("trouble").setup({})
+
+vim.api.nvim_set_keymap("n", ".", ":Trouble diagnostics toggle<cr>", {noremap=true})
 
 -- LSP
 local lspconfig = require('lspconfig')

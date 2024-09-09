@@ -1,0 +1,7 @@
+set afterends
+set linenumbers
+set mouse
+set regexp
+set tabsize 4
+set tabstospaces
+

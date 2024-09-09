@@ -14,7 +14,8 @@ DOTS=(  ["shellrc"]="$HOME/.shellrc" \
         ["alacritty"]="$HOME/.config/alacritty.toml" \
         ["kitty"]="$HOME/.config/kitty/kitty.conf" \
         ["i3"]="$HOME/.config/i3/config" \
-        ["i3status"]="$HOME/.config/i3status/config" )
+        ["i3status"]="$HOME/.config/i3status/config" \
+        ["nanorc"]="$HOME/.nanorc" )
 
 declare -a FONTS
 FONTS=( "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/JetBrainsMono.zip" )
