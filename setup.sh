@@ -92,7 +92,7 @@ main() {
 
     parse_args "$@"
 
-    if [ $inverse = true ] ; then
+    if [ "$inverse" = true ] ; then
         [ "$do_omz" = true ] && setup_omz
         [ "$do_dots" = true ] && setup_dots
         [ "$do_scripts" = true ] && setup_scripts
