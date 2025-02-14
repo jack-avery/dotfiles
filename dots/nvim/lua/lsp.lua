@@ -1,63 +1,17 @@
--- lazy.nvim
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
-end
-vim.opt.rtp:prepend(lazypath)
-
-require("lazy").setup({
-  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-  "nvim-tree/nvim-tree.lua",
-  "nvim-tree/nvim-web-devicons",
-  "neovim/nvim-lspconfig",
-  "williamboman/mason.nvim",
-  "williamboman/mason-lspconfig.nvim",
-  "hrsh7th/cmp-nvim-lsp",
-  "hrsh7th/nvim-cmp",
-  "hrsh7th/cmp-vsnip",
-  "hrsh7th/vim-vsnip",
-  "folke/trouble.nvim"
-})
-
-vim.cmd.colorscheme "catppuccin"
-
-require("nvim-tree").setup()
 require("mason").setup()
-require("mason-lspconfig").setup({})
-require("trouble").setup({})
+require("mason-lspconfig").setup()
+local lspconfig = require("lspconfig")
+local cmp = require("cmp")
+local util = require("lspconfig/util")
 
-vim.api.nvim_set_keymap("n", ".", ":Trouble diagnostics toggle<cr>", {noremap=true})
-
--- LSP
-local lspconfig = require('lspconfig')
+-- autoconfig lsp with Mason:
 require("mason-lspconfig").setup_handlers({
   function(server)
     lspconfig[server].setup({})
   end,
 })
 
-vim.opt.list=true
-local space = "·"
-vim.opt.listchars:append {
-  tab = "│ ",
-  multispace = space,
-  lead = space,
-  trail = space,
-  nbsp = space
-}
-vim.cmd([[match TrailingWhitespace /\s\+$/]])
-vim.api.nvim_set_hl(0, "TrailingWhitespace", { link = "Error" })
-
--- Set up nvim-cmp.
-local cmp = require("cmp")
-
+-- The default config for cmp:
 cmp.setup({
   snippet = {
     expand = function(args)
@@ -118,12 +72,8 @@ cmp.setup.cmdline(':', {
   matching = { disallow_symbol_nonprefix_matching = false }
 })
 
--- Set up lspconfig.
+-- reconfig lsp for some:
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 require('lspconfig')["pylsp"].setup {
   capabilities = capabilities
 }
-require('lspconfig')["rust_analyzer"].setup {
-  capabilities = capabilities
-}
-

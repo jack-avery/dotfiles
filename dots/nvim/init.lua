@@ -24,9 +24,7 @@ vim.opt.swapfile=false
 vim.opt.backup=false
 vim.opt.wb=false
 
--- Keybinds
 vim.g.mapleader = " "
-vim.api.nvim_set_keymap("n", ",", ":NvimTreeOpen<cr>", {noremap=true})
 
 -- Fast save & quit
 vim.api.nvim_set_keymap("n", "<leader>w", ":w<cr>", {noremap=true})
@@ -40,4 +38,19 @@ vim.api.nvim_set_keymap("n", "<tab>", ">>", {noremap=true})
 vim.api.nvim_set_keymap("n", "<s-tab>", "<<", {noremap=true})
 vim.api.nvim_set_keymap("i", "<s-tab>", "<esc><<A", {noremap=true})
 
-require("lsp-cmp")
+-- Whitespace handling
+vim.opt.list=true
+local space = "·"
+vim.opt.listchars:append {
+  tab = "│ ",
+  multispace = space,
+  lead = space,
+  trail = space,
+  nbsp = space
+}
+vim.cmd([[match TrailingWhitespace /\s\+$/]])
+vim.api.nvim_set_hl(0, "TrailingWhitespace", { link = "Error" })
+
+require("plugins")
+require("binds")
+require("lsp")
