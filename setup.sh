@@ -26,6 +26,7 @@ parse_args() {
             "-v") verbose='-v' ;;
             "--verbose") verbose='-v' ;;
             "--only") inverse=true ;;
+            "--unsetup") unsetup=true ;;
             "dots") do_dots=true ;;
             "scripts") do_scripts=true ;;
             "omz") do_omz=true ;;
@@ -43,11 +44,20 @@ setup_dots() {
     for d in ${!DOTS[@]}; do
         # create folders if they don't exist
         [[ ! -e $(dirname "${DOTS[$d]}") ]] && mkdir -p $verbose $(dirname ${DOTS[$d]})
-        # delete old files/residual symlinks
+        # backup old files/delete residual symlinks
         [[ -L ${DOTS[$d]} ]] && rm $verbose ${DOTS[$d]}
         [[ -f ${DOTS[$d]} ]] && mv $verbose ${DOTS[$d]} ${DOTS[$d]}.old
         # symlink new config
         ln -s $verbose $DIR/dots/$d ${DOTS[$d]}
+    done
+}
+
+unsetup_dots() {
+    echo unsetting up dots...
+
+    # link configuration
+    for d in ${!DOTS[@]}; do
+        [[ -L ${DOTS[$d]} ]] && rm $verbose ${DOTS[$d]}
     done
 }
 
@@ -59,9 +69,20 @@ setup_scripts() {
     for SCRIPT in $DIR/scripts/*; do
         BASENAME=$(basename "$SCRIPT")
         chmod $verbose +x $DIR/scripts/$BASENAME
-        # replace with script
+        # backup old files/delete residual symlinks
         [[ -L $HOME/.local/bin/$BASENAME ]] && rm $verbose $HOME/.local/bin/$BASENAME
+        [[ -f $HOME/.local/bin/$BASENAME ]] && mv $verbose $HOME/.local/bin/$BASENAME $HOME/.local/bin/$BASENAME.old
+        # symlink script
         ln -s $verbose $DIR/scripts/$BASENAME $HOME/.local/bin/$BASENAME
+    done
+}
+
+unsetup_scripts() {
+    echo unsetting up scripts...
+
+    for SCRIPT in $DIR/scripts/*; do
+        BASENAME=$(basename "$SCRIPT")
+        [[ -L $HOME/.local/bin/$BASENAME ]] && rm $verbose $HOME/.local/bin/$BASENAME
     done
 }
 
@@ -97,14 +118,30 @@ main() {
         [ "$do_dots" = true ] && setup_dots
         [ "$do_scripts" = true ] && setup_scripts
         [ "$do_fonts" = true ] && setup_fonts
-    else
-        setup_omz
-        setup_dots
-        setup_scripts
-        setup_fonts
+
+        finish
     fi
 
+    if [ "$unsetup" = true ] ; then
+        unsetup_dots
+        unsetup_scripts
+
+        echo ignoring OMZ and Fonts as they are not symlinked
+
+        finish
+    fi
+
+    setup_omz
+    setup_dots
+    setup_scripts
+    setup_fonts
+
+    finish
+}
+
+finish() {
     echo finished
+    exit 0
 }
 
 main "$@"
