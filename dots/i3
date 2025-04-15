@@ -153,9 +153,9 @@ bindsym $mod+Shift+e exec st -- i3logout
 # lock i3
 bindsym $mod+Shift+t exec slock
 
-bindsym XF86AudioMute exec --no-startup-id "amixer -q set Master toggle"
-bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer -q set Master 5%+ unmute"
-bindsym XF86AudioLowerVolume exec --no-startup-id "amixer -q set Master 5%- unmute"
+bindsym XF86AudioMute exec --no-startup-id "pamixer -t"
+bindsym XF86AudioRaiseVolume exec --no-startup-id "pamixer -i 5"
+bindsym XF86AudioLowerVolume exec --no-startup-id "pamixer -d 5"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
