@@ -21,3 +21,6 @@ COMPLETION_WAITING_DOTS="true"
 plugins=()
 source $ZSH/oh-my-zsh.sh
 
+if [ -f '$HOME/git/google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/git/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '$HOME/git/google-cloud-sdk/completion.zsh.inc' ]; then . '$HOME/git/google-cloud-sdk/completion.zsh.inc'; fi
+eval "$(~/.rbenv/bin/rbenv init - zsh 2> /dev/null)"

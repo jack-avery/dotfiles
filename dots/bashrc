@@ -1,7 +1,7 @@
 source ~/.shellrc
 
 rc_color() {
-    if [[ ! $? == 0 ]] then
+    if [[ ! $? == 0 ]]; then
         echo -e '\033[0;31m'
     else
         echo -e '\033[0m'
@@ -9,7 +9,8 @@ rc_color() {
 }
 
 git_ps1() {
-    local git_status="$(git status 2> /dev/null)"
+    local git_status
+    git_status="$(git status 2> /dev/null)"
     local on_branch="On branch ([^${IFS}]*)"
     local on_commit="HEAD detached at ([^${IFS}]*)"
 
@@ -23,4 +24,9 @@ git_ps1() {
 }
 
 PROMPT_COMMAND='RC_COLOR=$(rc_color);GITPS1=$(git_ps1)'
-PS1=' \001\033[0;33m\002\W\001\033[0;35m\002${GITPS1} \001${RC_COLOR}\002\$ \001\033[0m\002'
+PS1=' \001\033[0;33m\002\u\001\033[0m\002@\001\033[0;33m\002\h \W\001\033[0;35m\002${GITPS1} \001${RC_COLOR}\002\$ \001\033[0m\002'
+
+if [ -f ~/git/google-cloud-sdk/path.bash.inc ]; then . ~/git/google-cloud-sdk/path.bash.inc; fi
+if [ -f ~/git/google-cloud-sdk/completion.bash.inc ]; then . ~/git/google-cloud-sdk/completion.bash.inc; fi
+eval "$(~/.rbenv/bin/rbenv init - bash 2> /dev/null)"
+eval "$(~/.nodenv/bin/nodenv init - bash 2> /dev/null)"
