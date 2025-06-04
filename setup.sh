@@ -41,14 +41,14 @@ setup_dots() {
     echo setting up dots...
 
     # link configuration
-    for d in ${!DOTS[@]}; do
+    for d in "${!DOTS[@]}"; do
         # create folders if they don't exist
-        [[ ! -e $(dirname "${DOTS[$d]}") ]] && mkdir -p $verbose $(dirname ${DOTS[$d]})
+        [[ ! -e $(dirname "${DOTS[$d]}") ]] && mkdir -p $verbose "$(dirname "${DOTS[$d]}")"
         # backup old files/delete residual symlinks
-        [[ -L ${DOTS[$d]} ]] && rm $verbose ${DOTS[$d]}
-        [[ -f ${DOTS[$d]} ]] && mv $verbose ${DOTS[$d]} ${DOTS[$d]}.old
+        [[ -L ${DOTS[$d]} ]] && rm $verbose "${DOTS[$d]}"
+        [[ -f ${DOTS[$d]} ]] && mv $verbose "${DOTS[$d]}" "${DOTS[$d]}".old
         # symlink new config
-        ln -s $verbose $DIR/dots/$d ${DOTS[$d]}
+        ln -s $verbose "$DIR"/dots/"$d" "${DOTS[$d]}"
     done
 }
 
@@ -56,8 +56,8 @@ unsetup_dots() {
     echo unsetting up dots...
 
     # link configuration
-    for d in ${!DOTS[@]}; do
-        [[ -L ${DOTS[$d]} ]] && rm $verbose ${DOTS[$d]}
+    for d in "${!DOTS[@]}"; do
+        [[ -L ${DOTS[$d]} ]] && rm $verbose "${DOTS[$d]}"
     done
 }
 
@@ -66,23 +66,23 @@ setup_scripts() {
 
     # link scripts
     [[ ! -e "$HOME/.local/bin" ]] && mkdir -p $verbose "$HOME/.local/bin"
-    for SCRIPT in $DIR/scripts/*; do
+    for SCRIPT in "$DIR"/scripts/*; do
         BASENAME=$(basename "$SCRIPT")
-        chmod $verbose +x $DIR/scripts/$BASENAME
+        chmod $verbose +x "$DIR"/scripts/"$BASENAME"
         # backup old files/delete residual symlinks
-        [[ -L $HOME/.local/bin/$BASENAME ]] && rm $verbose $HOME/.local/bin/$BASENAME
-        [[ -f $HOME/.local/bin/$BASENAME ]] && mv $verbose $HOME/.local/bin/$BASENAME $HOME/.local/bin/$BASENAME.old
+        [[ -L $HOME/.local/bin/$BASENAME ]] && rm $verbose "$HOME"/.local/bin/"$BASENAME"
+        [[ -f $HOME/.local/bin/$BASENAME ]] && mv $verbose "$HOME"/.local/bin/"$BASENAME" "$HOME"/.local/bin/"$BASENAME".old
         # symlink script
-        ln -s $verbose $DIR/scripts/$BASENAME $HOME/.local/bin/$BASENAME
+        ln -s $verbose "$DIR"/scripts/"$BASENAME" "$HOME"/.local/bin/"$BASENAME"
     done
 }
 
 unsetup_scripts() {
     echo unsetting up scripts...
 
-    for SCRIPT in $DIR/scripts/*; do
+    for SCRIPT in "$DIR"/scripts/*; do
         BASENAME=$(basename "$SCRIPT")
-        [[ -L $HOME/.local/bin/$BASENAME ]] && rm $verbose $HOME/.local/bin/$BASENAME
+        [[ -L $HOME/.local/bin/$BASENAME ]] && rm $verbose "$HOME"/.local/bin/"$BASENAME"
     done
 }
 
@@ -97,8 +97,8 @@ setup_fonts() {
     echo setting up fonts...
 
     [[ ! -e "$HOME/.local/share/fonts" ]] && mkdir -p $verbose "$HOME/.local/share/fonts"
-    for font in ${FONTS[@]} ; do
-        curl -o "$HOME/.local/share/fonts/font.zip" -L $font
+    for font in "${FONTS[@]}" ; do
+        curl -o "$HOME/.local/share/fonts/font.zip" -L "$font"
         unzip -o -d "$HOME/.local/share/fonts" "$HOME/.local/share/fonts/font.zip"
         rm $verbose "$HOME/.local/share/fonts/font.zip"
     done
