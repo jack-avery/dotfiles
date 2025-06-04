@@ -1,8 +1,8 @@
-if command -v doas &> /dev/null ; then
+if command -v doas >/dev/null 2>&1 ; then
     alias sudo='doas'
 fi
 
-if command -v fastfetch &> /dev/null ; then
+if command -v fastfetch >/dev/null 2>&1 ; then
     alias neofetch='fastfetch'
 fi
 
@@ -13,4 +13,4 @@ alias c='cd ..'
 
 alias v='$EDITOR'
 alias lg='lazygit'
-
+alias ssha='eval `ssh-agent -s` && ssh-add'
