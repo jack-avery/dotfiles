@@ -10,6 +10,7 @@ vim.opt.fileencoding="ascii"
 vim.opt.belloff="all"
 vim.opt.paste=false
 vim.opt.modifiable=true
+vim.opt.clipboard = { 'unnamed', 'unnamedplus' }
 
 -- Indentation
 vim.opt.shiftwidth=4

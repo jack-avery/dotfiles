@@ -1,16 +1,16 @@
 " General
-set number              " line numbers
-set relativenumber      " relative line numbers
-set autoread            " reload files with change from external apps
-set smartcase           " smart case search
-set ignorecase          " case insensitive search
-set hlsearch            " highlight search results
-set incsearch           " show results in real time
-set clipboard^=unnamed  " use system clipboard
-set fileencoding=utf-8  " write to utf-8
-set belloff=all         " no sounds
-set nopaste             " do not autoindent on paste
-syntax on               " syntax highlighting
+set number                " line numbers
+set relativenumber        " relative line numbers
+set autoread              " reload files with change from external apps
+set smartcase             " smart case search
+set ignorecase            " case insensitive search
+set hlsearch              " highlight search results
+set incsearch             " show results in real time
+set clipboard=unnamedplus " use system clipboard
+set fileencoding=utf-8    " write to utf-8
+set belloff=all           " no sounds
+set nopaste               " do not autoindent on paste
+syntax on                 " syntax highlighting
 
 " Indentation
 set shiftwidth=4
