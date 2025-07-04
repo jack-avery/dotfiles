@@ -11,7 +11,7 @@ DOTS=(  ["shellrc"]="$HOME/.shellrc" \
         ["zsh_theme"]="$HOME/.oh-my-zsh/custom/themes/jack.zsh-theme" \
         ["gitconfig"]="$HOME/.gitconfig" \
         ["tmux"]="$HOME/.config/tmux/tmux.conf" \
-        ["alacritty"]="$HOME/.config/alacritty.toml" \
+        ["alacritty"]="$HOME/.config/alacritty" \
         ["kitty"]="$HOME/.config/kitty/kitty.conf" \
         ["i3"]="$HOME/.config/i3/config" \
         ["i3status"]="$HOME/.config/i3status/config" \
