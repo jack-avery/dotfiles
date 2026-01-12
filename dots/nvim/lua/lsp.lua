@@ -4,13 +4,6 @@ local lspconfig = require("lspconfig")
 local cmp = require("cmp")
 local util = require("lspconfig/util")
 
--- autoconfig lsp with Mason:
-require("mason-lspconfig").setup_handlers({
-  function(server)
-    lspconfig[server].setup({})
-  end,
-})
-
 -- The default config for cmp:
 cmp.setup({
   snippet = {
