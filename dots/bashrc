@@ -23,7 +23,7 @@ C_END='\033[0m'
 
 if [ -f '~/git/google-cloud-sdk/path.bash.inc' ]; then . '~/git/google-cloud-sdk/path.bash.inc'; fi
 if [ -f '~/git/google-cloud-sdk/completion.bash.inc' ]; then . '~/git/google-cloud-sdk/completion.bash.inc'; fi
-eval "$(~/.rbenv/bin/rbenv init - bash 2> /dev/null)"
+if [ -f '~/.rbenv/bin/rbenv' ]; then eval "$(~/.rbenv/bin/rbenv init - bash 2> /dev/null)"; fi
 
 rc_color() {
     if [[ ! $? == 0 ]] then
@@ -49,4 +49,3 @@ rc_color() {
 
 PROMPT_COMMAND='RC_COLOR=$(rc_color)'
 PS1='\n \001\033[0;90m\002\W \001${RC_COLOR}\002λ \001\033[0m\002'
-. "$HOME/.cargo/env"
